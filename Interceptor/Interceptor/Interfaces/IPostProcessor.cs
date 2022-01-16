@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Remoting.Messaging;
 
-namespace Interceptor
+namespace Interceptor.Interfaces
 {
     public interface IPostProcessor
     {

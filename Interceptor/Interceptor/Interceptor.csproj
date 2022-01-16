@@ -41,14 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InterceptAttribute.cs" />
+    <Compile Include="Attributes\InterceptAttribute.cs" />
     <Compile Include="InterceptProperty.cs" />
     <Compile Include="InterceptSink.cs" />
-    <Compile Include="IPostProcessor.cs" />
-    <Compile Include="IPreProcessor.cs" />
-    <Compile Include="PostProcessAttribute.cs" />
-    <Compile Include="PreProcessAttribute.cs" />
+    <Compile Include="Interfaces\IPostProcessor.cs" />
+    <Compile Include="Interfaces\IPreProcessor.cs" />
+    <Compile Include="Attributes\PostProcessAttribute.cs" />
+    <Compile Include="Attributes\PreProcessAttribute.cs" />
+    <Compile Include="Processors\CodeTimer.cs" />
+    <Compile Include="Processors\CodeTimerProcessor.cs" />
+    <Compile Include="Processors\ExceptionHandlingProcessor.cs" />
+    <Compile Include="Processors\TracePostProcessor.cs" />
+    <Compile Include="Processors\TracePreProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

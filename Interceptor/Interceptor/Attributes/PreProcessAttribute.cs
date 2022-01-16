@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Interceptor.Interfaces;
+using System;
 
-namespace Interceptor
+namespace Interceptor.Attributes
 {
     [AttributeUsage(AttributeTargets.Constructor | 
 					AttributeTargets.Method | 
@@ -8,6 +9,11 @@ namespace Interceptor
 	public class PreProcessAttribute : Attribute
 	{
 		public IPreProcessor Processor { get; }
+
+        public PreProcessAttribute(IPreProcessor processor)
+        {
+			Processor = processor;
+        }
 
 		public PreProcessAttribute(Type preProcessorType)
 		{

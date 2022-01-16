@@ -1,14 +1,13 @@
-﻿using Interceptor;
+﻿using Interceptor.Attributes;
 using System;
 
 namespace TestConsole
 {
     [Intercept]
-    public class TestObject
+    public class TestObject : ContextBoundObject
     {
         public TestObject()
         {
-
         }
 
         public void SimpleMethod()

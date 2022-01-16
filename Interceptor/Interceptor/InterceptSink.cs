@@ -1,4 +1,5 @@
-﻿using System.Runtime.Remoting.Messaging;
+﻿using Interceptor.Attributes;
+using System.Runtime.Remoting.Messaging;
 
 namespace Interceptor
 {
@@ -13,12 +14,12 @@ namespace Interceptor
 
         public IMessage SyncProcessMessage(IMessage msg)
         {
-            IMethodCallMessage mcm = msg as IMethodCallMessage;
+            var mcm = msg as IMethodCallMessage;
 
             PreProcess(ref mcm);
 
-            IMessage rtnMsg = NextSink.SyncProcessMessage(msg);
-            IMethodReturnMessage mrm = rtnMsg as IMethodReturnMessage;
+            var rtnMsg = NextSink.SyncProcessMessage(msg);
+            var mrm = rtnMsg as IMethodReturnMessage;
 
             PostProcess(msg as IMethodCallMessage, ref mrm);
 
@@ -29,7 +30,7 @@ namespace Interceptor
         {
             // Not implemented...
 
-            IMessageCtrl rtnMsgCtrl = NextSink.AsyncProcessMessage(msg, replySink);
+            var rtnMsgCtrl = NextSink.AsyncProcessMessage(msg, replySink);
             return rtnMsgCtrl;
         }
 

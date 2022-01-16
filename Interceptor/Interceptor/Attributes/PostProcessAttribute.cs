@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Interceptor.Interfaces;
+using System;
 
-namespace Interceptor
+namespace Interceptor.Attributes
 {
     [AttributeUsage(AttributeTargets.Constructor | 
 					AttributeTargets.Method | 
@@ -8,6 +9,11 @@ namespace Interceptor
 	public class PostProcessAttribute : Attribute
 	{
 		public IPostProcessor Processor { get; }
+
+        public PostProcessAttribute(IPostProcessor processor)
+        {
+			Processor = processor;
+        }
 
 		public PostProcessAttribute(Type postProcessorType)
 		{

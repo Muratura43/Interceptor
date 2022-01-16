@@ -2,7 +2,7 @@
 using System.Runtime.Remoting.Activation;
 using System.Runtime.Remoting.Contexts;
 
-namespace Interceptor
+namespace Interceptor.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
 	public class InterceptAttribute : ContextAttribute
