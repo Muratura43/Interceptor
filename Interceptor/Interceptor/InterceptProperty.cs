@@ -4,7 +4,7 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Interceptor
 {
-    public class InterceptProperty : IContextProperty, IContributeObjectSink
+    internal class InterceptProperty : IContextProperty, IContributeObjectSink
 	{
 		public string Name => "Intercept";
 

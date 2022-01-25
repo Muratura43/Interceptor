@@ -1,4 +1,5 @@
 ﻿using Interceptor.Interfaces;
+using System;
 using System.Runtime.Remoting.Messaging;
 
 namespace Interceptor.Processors
@@ -18,6 +19,24 @@ namespace Interceptor.Processors
 		{
 			_timer = (CodeTimer)callMsg.Properties["codeTimer"];
 			_timer.Finish();
+		}
+
+		private class CodeTimer
+		{
+			private DateTime start;
+			private string operation;
+
+			public void Start(string op)
+			{
+				operation = op;
+				start = DateTime.Now;
+			}
+
+			public void Finish()
+			{
+				var ts = DateTime.Now.Subtract(start);
+				Console.WriteLine("Total time for {0}: {1}ms", operation, ts.TotalMilliseconds);
+			}
 		}
 	}
 }

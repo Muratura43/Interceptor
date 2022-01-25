@@ -4,7 +4,7 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Interceptor.Processors
 {
-    public class ExceptionHandlingProcessor : IPostProcessor
+    public abstract class ExceptionHandlingProcessor : IPostProcessor
 	{
 		public void Process(IMethodCallMessage callMsg, ref IMethodReturnMessage retMsg)
 		{
@@ -12,9 +12,9 @@ namespace Interceptor.Processors
 
 			if (e != null)
 			{
-				HandleException(e);
+				HandleException(callMsg, e);
 
-				var newException = GetNewException(e);
+				var newException = GetNewException(callMsg, e);
 
 				if (!ReferenceEquals(e, newException))
 				{
@@ -23,12 +23,9 @@ namespace Interceptor.Processors
 			}
 		}
 
-		public virtual void HandleException(Exception e)
-        {
-			Console.WriteLine(e.Message);
-        }
+		protected abstract void HandleException(IMethodCallMessage callMsg, Exception e);
 
-		public virtual Exception GetNewException(Exception oldException)
+		protected virtual Exception GetNewException(IMethodCallMessage callMsg, Exception oldException)
 		{
 			return oldException;
 		}

@@ -52,9 +52,11 @@
     <Compile Include="Attributes\PostProcessAttribute.cs" />
     <Compile Include="Attributes\PreProcessAttribute.cs" />
     <Compile Include="Interfaces\IProcessor.cs" />
-    <Compile Include="Processors\CodeTimer.cs" />
+    <Compile Include="Processors\ExceptionSilencerProcessor.cs" />
     <Compile Include="Processors\CodeTimerProcessor.cs" />
     <Compile Include="Processors\ExceptionHandlingProcessor.cs" />
+    <Compile Include="Processors\ExceptionRewriteProcessor.cs" />
+    <Compile Include="Processors\ExceptionTraceProcessor.cs" />
     <Compile Include="Processors\TraceProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

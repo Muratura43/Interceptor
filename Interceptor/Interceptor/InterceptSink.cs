@@ -1,10 +1,9 @@
 ﻿using Interceptor.Attributes;
-using Interceptor.Interfaces;
 using System.Runtime.Remoting.Messaging;
 
 namespace Interceptor
 {
-    public class InterceptSink : IMessageSink
+    internal class InterceptSink : IMessageSink
     {
         public IMessageSink NextSink { get; }
 

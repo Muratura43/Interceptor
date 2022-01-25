@@ -17,6 +17,7 @@ namespace TestConsole
             Console.WriteLine("SimpleMethod");
         }
 
+        [PostProcess(typeof(ExceptionTraceProcessor))]
         public void ExceptionMethod()
         {
             Console.WriteLine("ExceptionMethod");
