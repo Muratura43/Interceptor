@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Method.Interceptor</id>
+    <version>1.0.0</version>
+    <title>Method Interceptor</title>
+    <authors>Muratura43</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+	<projectUrl>https://github.com/Muratura43/Interceptor</projectUrl>
+    <description>A method interceptor that uses ContextBoundObject</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright © Buggy Tech 2022</copyright>
+    <tags>interceptor aop method attributes processor code aspect</tags>
+	<language>en</language>
+	<dependencies>
+      <group targetFramework=".NETFramework4.5" />
+    </dependencies>
+  </metadata>
+</package>
