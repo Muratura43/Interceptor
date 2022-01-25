@@ -7,10 +7,6 @@ namespace Interceptor.Processors
 		private DateTime start;
 		private string operation;
 
-		public CodeTimer()
-		{
-		}
-
 		public void Start(string op)
 		{
 			operation = op;

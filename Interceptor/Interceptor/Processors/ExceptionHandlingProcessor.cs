@@ -6,10 +6,6 @@ namespace Interceptor.Processors
 {
     public class ExceptionHandlingProcessor : IPostProcessor
 	{
-		public ExceptionHandlingProcessor()
-		{
-		}
-
 		public void Process(IMethodCallMessage callMsg, ref IMethodReturnMessage retMsg)
 		{
 			var e = retMsg.Exception;

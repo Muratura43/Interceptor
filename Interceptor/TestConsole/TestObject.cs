@@ -1,4 +1,5 @@
 ﻿using Interceptor.Attributes;
+using Interceptor.Processors;
 using System;
 
 namespace TestConsole
@@ -10,6 +11,7 @@ namespace TestConsole
         {
         }
 
+        [CodeTimer]
         public void SimpleMethod()
         {
             Console.WriteLine("SimpleMethod");
@@ -21,11 +23,13 @@ namespace TestConsole
             throw new Exception();
         }
 
+        [Trace]
         public void ParameterMethod(int n)
         {
             Console.WriteLine($"ParameterMethod({n})");
         }
 
+        [PostProcess(typeof(TraceProcessor))]
         public int SimpleFunction()
         {
             Console.WriteLine("SimpleFunction");

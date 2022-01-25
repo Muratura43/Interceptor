@@ -3,13 +3,9 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Interceptor.Processors
 {
-    public class CodeTimerProcessor : IPreProcessor, IPostProcessor
+    public class CodeTimerProcessor : IProcessor
 	{
 		private CodeTimer _timer;
-
-		public CodeTimerProcessor()
-		{
-		}
 
         void IPreProcessor.Process(ref IMethodCallMessage msg)
 		{

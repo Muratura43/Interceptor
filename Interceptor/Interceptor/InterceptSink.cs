@@ -1,4 +1,5 @@
 ﻿using Interceptor.Attributes;
+using Interceptor.Interfaces;
 using System.Runtime.Remoting.Messaging;
 
 namespace Interceptor
@@ -36,21 +37,35 @@ namespace Interceptor
 
         private void PreProcess(ref IMethodCallMessage msg)
         {
-            var attrs = (PreProcessAttribute[])msg.MethodBase.GetCustomAttributes(typeof(PreProcessAttribute), true);
+            var preAttrs = (PreProcessAttribute[])msg.MethodBase.GetCustomAttributes(typeof(PreProcessAttribute), true);
+
+            foreach (var preAttr in preAttrs)
+            {
+                preAttr.Processor.Process(ref msg);
+            }
+
+            var attrs = (ProcessAttribute[])msg.MethodBase.GetCustomAttributes(typeof(ProcessAttribute), true);
 
             foreach (var attr in attrs)
             {
-                attr.Processor.Process(ref msg);
+                attr.PreProcess(ref msg);
             }
         }
 
         private void PostProcess(IMethodCallMessage callMsg, ref IMethodReturnMessage rtnMsg)
         {
-            var attrs = (PostProcessAttribute[])callMsg.MethodBase.GetCustomAttributes(typeof(PostProcessAttribute), true);
+            var postAttrs = (PostProcessAttribute[])callMsg.MethodBase.GetCustomAttributes(typeof(PostProcessAttribute), true);
+
+            foreach (var postAttr in postAttrs)
+            {
+                postAttr.Processor.Process(callMsg, ref rtnMsg);
+            }
+
+            var attrs = (ProcessAttribute[])callMsg.MethodBase.GetCustomAttributes(typeof(ProcessAttribute), true);
 
             foreach (var attr in attrs)
             {
-                attr.Processor.Process(callMsg, ref rtnMsg);
+                attr.PostProcess(callMsg, ref rtnMsg);
             }
         }
     }
