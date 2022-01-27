@@ -9,7 +9,6 @@ namespace TestConsole
             var test = new TestObject();
 
             test.SimpleMethod();
-
             test.ParameterMethod(2);
 
             var n = test.SimpleFunction();

@@ -53,6 +53,7 @@
     <Compile Include="Attributes\TraceAttribute.cs" />
     <Compile Include="InterceptProperty.cs" />
     <Compile Include="InterceptSink.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IPostProcessor.cs" />
     <Compile Include="Interfaces\IPreProcessor.cs" />
     <Compile Include="Attributes\PostProcessAttribute.cs" />

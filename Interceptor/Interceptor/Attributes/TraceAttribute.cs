@@ -1,4 +1,5 @@
-﻿using Interceptor.Processors;
+﻿using Interceptor.Interfaces;
+using Interceptor.Processors;
 using System;
 
 namespace Interceptor.Attributes
@@ -9,7 +10,13 @@ namespace Interceptor.Attributes
     public class TraceAttribute : ProcessAttribute
     {
         public TraceAttribute()
-            : base(new TraceProcessor())
+            : this(null)
+        {
+
+        }
+
+        public TraceAttribute(ILogger logger)
+            : base(new TraceProcessor(logger))
         {
 
         }
